@@ -71,3 +71,39 @@ extension Int {
 let number = 9
 let numberInDouble = 9.Int2Double()
 let numberIsOdd = 1.isOdd
+
+//Protocol Extension
+// Same like regular extensions, functions and properties can be created for protocol extensions
+let arr1 = [1,2,3,4]
+
+extension Collection {
+    func printAllElementsWithGreeting() {
+        for i in self {
+            print("Hello \(i)")
+        }
+    }
+}
+
+arr1.printAllElementsWithGreeting()
+
+// Protocol Oriented Programming
+// Can give a default function using extension
+// can declare the same protocol stub function inside stuct conforming to protcol for override
+protocol Default {
+    var id: String {get set}
+}
+extension Default {
+    func defaultGreeting() {
+        print("Hello-AK \(id)")
+    }
+}
+
+struct AK: Default {
+    var id: String
+    
+//    func defaultGreeting() {
+//        print("I am the override Greeting - \(id)")
+//    }
+}
+let ak = AK(id: "12345")
+ak.defaultGreeting()
